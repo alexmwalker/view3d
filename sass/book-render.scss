@@ -1,0 +1,185 @@
+@mixin makemearealboy {
+    // used a lot on :before :after pseudo elements
+    display: block;
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+body {
+    font-family: sans-serif;
+}
+
+
+/*
+ $aspect-ratio is 7:9 (.76) ratio for all SP books and shouldn't change
+ unless the book format changes. */
+
+$aspect-ratio: 0.76;
+$spine-ratio: 0.05;
+$book-perspective: 3.5;
+
+/* -- Preset Book Display Sizes -- */
+
+
+/* WIDTHS  */
+
+$height-small: 150px;
+$height-mid: 300px;
+$height-large: 480px;
+
+/* HEIGHTS  */
+
+$width-small: $height-small*$aspect-ratio;
+$width-mid: $height-mid * $aspect-ratio;
+$width-large: $height-large * $aspect-ratio;
+
+/* SPINES  */
+
+$spine-small: $height-small*$spine-ratio;
+$spine-mid: $height-mid * $spine-ratio;
+$spine-large: $height-large * $spine-ratio;
+
+/* Calculate other book dimensions */
+
+.book.size-small {
+    height: $height-small;
+    width: $width-small;
+    perspective: $height-small * $book-perspective;
+    .backcover {
+        transform: rotateY(180deg) translateZ($spine-small);
+        &:before,
+        &:after {
+            width: $spine-small;
+        }
+    }
+}
+
+.book.size-mid {
+    height: $height-mid;
+    width: $width-mid;
+    perspective: $height-mid * $book-perspective;
+    .backcover {
+        transform: rotateY(180deg) translateZ($spine-mid);
+        &:before,
+        &:after {
+            width: $spine-mid;
+        }
+    }
+}
+
+.book.size-large {
+    height: $height-large;
+    width: $width-large;
+    perspective: $height-large * $book-perspective;
+    .backcover {
+        transform: rotateY(180deg) translateZ($spine-large);
+        &:before,
+        &:after {
+            width: $spine-large;
+        }
+    }
+}
+
+.book {
+    // book container
+    margin: 10%;
+    position: relative;
+}
+
+figure.view3d {
+    // book container
+    perspective-origin: 50% 50%;
+    float: left;
+    outline: 1px #eee dashed;
+}
+
+.cover {
+    /* Designed as a frame to crop IMG to only cover */
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, .15), 3px 3px 4px rgba(0, 0, 0, .3), 6px 6px 4px rgba(0, 0, 0, .1);
+    &:after {
+        /* reflection effect on the cover */
+        @include makemearealboy;
+        height: 100%;
+        width: 100%;
+        background: linear-gradient(105deg, rgba(255, 255, 255, .7) 0%, rgba(0, 0, 0, 00) 29%, rgba(0, 0, 0, 0.3) 79%, rgba(255, 255, 255, 0) 100%);
+        top: 0;
+        left: 0;
+        position: relative;
+    }
+}
+
+.view3d .cover {
+    box-shadow: none;
+    /* remove anchoring shadow if in 3D view */
+}
+
+.cover img {
+    float: right;
+    height: 100%;
+}
+
+.view3d .bookgroup {
+    // an added wrapper via JS
+    transform-style: preserve-3d;
+    transform-origin: 50% 50% 50%;
+    transform: rotateY(0deg) rotateX(0deg); //default view
+    height: 100%;
+    width: 100%;
+    position: relative;
+}
+
+.backcover {
+    // CREATED JS : Div containing current cover of BG
+    background: #f00;
+    transform-style: preserve-3d;
+    height: 100%;
+    width: 100%;
+    background-size: auto 100%;
+    position: absolute;
+    top: 0px;
+    z-index: -1;
+    right: 0px;
+    &:before,
+    &:after {
+        // :before is the right pages edge
+        @include makemearealboy;
+        transform-style: preserve-3d;
+        background: #eee;
+        /* Paper page edge: prolly gradient this */
+        height: 100%;
+        transform: rotateY(90deg);
+        transform-origin: (0% 50%);
+        z-index: 9;
+    }
+    &:after {
+        transform: rotateY(90deg) translateZ(0px);
+        left: 100%;
+        transform-origin: (0% 50%);
+        background: #ff0;
+    }
+}
+
+
+/* =======  Posing classes ========== */
+
+.angle-10 .bookgroup {
+    transform: rotateY(10deg) rotateX(0deg); //default view
+}
+
+.angle-30 .bookgroup {
+    transform: rotateY(30deg) rotateX(0deg); //default view
+}
+
+.angle-60 .bookgroup {
+    transform: rotateY(-60deg) rotateX(0deg); //default view
+}
+
+.angle-270 .bookgroup {
+    transform: rotateY(50deg) rotateX(0deg); //default view
+}
