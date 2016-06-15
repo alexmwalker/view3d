@@ -1,6 +1,6 @@
 {
     "path": {
-        "css/book-render.scss": {
+        "sass/book-render.scss": {
             "sass.enabled": true
             , "sass.options": {
                 "outputDir": "../css/"

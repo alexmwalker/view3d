@@ -31,13 +31,13 @@ $height-large: 480px;
 
 /* HEIGHTS  */
 
-$width-small: $height-small*$aspect-ratio;
+$width-small: $height-small * $aspect-ratio;
 $width-mid: $height-mid * $aspect-ratio;
 $width-large: $height-large * $aspect-ratio;
 
 /* SPINES  */
 
-$spine-small: $height-small*$spine-ratio;
+$spine-small: $height-small * $spine-ratio;
 $spine-mid: $height-mid * $spine-ratio;
 $spine-large: $height-large * $spine-ratio;
 
