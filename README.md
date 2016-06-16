@@ -1,5 +1,6 @@
-# view3d
-Renders any flat single-piece cover graphic into a 3d posable model.
+# Cubular - Making all your Ds 3.
+
+Renders any flat single-piece cover graphic into a 3d posable model. Ideal for dynamic book renderings, but useful for displaying DVD boxes, Blu-rays, Video Game packaging, software boxes and any other essentially cubic model.
 
 ## Basic HTML 
 
@@ -13,7 +14,7 @@ This is the basic HTML structure for each book graphic.
     </div>
 ```
 
-At their simplest, all books should render square and flat with a simple shadow. The `.book` class is the frame. The `.cover` class works to mask the IMG down to the front only. 
+At their simplest, all books should render square and flat with a simple shadow. The `.book` class is the frame to splace into your layout. The `.cover` class works to mask the IMG down to the front only. We *could* use `clip: rect` here, but this ensures older and less sophisticated devices get a clean result.
 
 Three sizes are available `.size-small`, `.size-mid` and `.size-large`. These dimensions are set in the SASS variables. 
 ```css
