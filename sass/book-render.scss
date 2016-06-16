@@ -165,13 +165,15 @@ figure.view3d {
         left: 100%;
         transform-origin: (0% 50%);
         background: #ff0;
-        background: inherit;// picks up BG image from parent
+        background: inherit; // picks up BG image from parent
         background-position: center center
     }
 }
 
 
 /* =======  Posing classes ========== */
+
+
 /* oclock notation: Viewer stands at 12 and model faces hour markers
 
      +------------+
@@ -204,25 +206,25 @@ figure.view3d {
 }
 
 .oclock-1 .bookgroup {
-    transform: rotateY(30deg) rotateX(0deg); //default view
-}
-
-.oclock-11 .bookgroup {
     transform: rotateY(-30deg) rotateX(0deg); //default view
 }
 
+.oclock-11 .bookgroup {
+    transform: rotateY(30deg) rotateX(0deg); //default view
+}
+
 .oclock-2 .bookgroup {
-    transform: rotateY(60deg) rotateX(0deg); //default view
+    transform: rotateY(-60deg) rotateX(0deg); //default view
 }
 
 .oclock-10 .bookgroup {
-    transform: rotateY(-60deg) rotateX(0deg); //default view
+    transform: rotateY(60deg) rotateX(0deg); //default view
 }
 
 .hover:hover .bookgroup {
     transform: rotateY(30deg) scale(1.15);
-    transition: transform 1.5s ease-in-out;
-    animation: spin 6s infinite linear 1.5s;
+    transition: transform 1.25s ease-in;
+    animation: spin 8s infinite linear 1.2s;
 }
 
 @keyframes spin {
