@@ -108,9 +108,7 @@ Another created DIV called `.backcover` is inserted inside `.bookgroup` as well.
 
 ##TO-DO
 
-[ ] Dynamic specular lighting effects (Using transparent gradients on multiple backgrounds).
-
-
-
+- [ ] Dynamic specular lighting effects (Using transparent gradients on multiple backgrounds).
+- [x] Add grounding shadow
 
 
