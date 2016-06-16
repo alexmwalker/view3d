@@ -8,7 +8,7 @@ This is the basic HTML structure for each book graphic.
 ```html
     <div class="book">
         <div class="cover">
-            <img src="img/scrum1.png" alt="BookScrum Novice to Ninja book" />
+            <img src="img/scrum1.png" alt="Book cover: Scrum Novice to Ninja" />
         </div>
     </div>
 ```
