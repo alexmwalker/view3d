@@ -221,6 +221,14 @@ figure.view3d {
     transform: rotateY(60deg) rotateX(0deg); //default view
 }
 
+.oclock-4 .bookgroup {
+    transform: rotateY(120deg) rotateX(0deg); //default view
+}
+
+.oclock-5 .bookgroup {
+    transform: rotateY(150deg) rotateX(0deg); //default view
+}
+
 .hover:hover .bookgroup {
     transform: rotateY(30deg) scale(1.15);
     transition: transform 1.25s ease-in;
