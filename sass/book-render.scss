@@ -93,7 +93,7 @@ figure.view3d {
   // book container
   perspective-origin: 50% 50%;
   float: left;
-  outline: 1px #eee dashed;
+  //outline: 1px #eee dashed;
 }
 
 .cover {
@@ -157,7 +157,6 @@ figure.view3d {
 
 .backcover {
   // CREATED JS : Div containing current cover of BG
-  background: #f00;
   transform-style: preserve-3d;
   height: 100%;
   width: 100%;
@@ -168,11 +167,9 @@ figure.view3d {
   right: 0px;
   &:before,
   &:after {
-    // :before is the right pages edge
+    // :before is the right page edge
     @include makemearealboy;
-    transform-style: preserve-3d;
-    background: #eee;
-    /* Paper page edge: prolly gradient this */
+    background: $paperedge;
     height: 100%;
     transform: rotateY(90deg);
     transform-origin: (0% 50%);
@@ -182,8 +179,7 @@ figure.view3d {
     transform: rotateY(90deg) translateZ(0px);
     left: 100%;
     transform-origin: (0% 50%);
-    background: #ff0;
-    background: inherit; // picks up BG image from parent
+    background: inherit; // picks up BG image from parent (yay!)
     background-position: center center
   }
 }
