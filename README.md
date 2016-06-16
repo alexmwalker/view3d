@@ -9,7 +9,7 @@ Play with the demo here: http://codepen.io/alexmwalker/pen/EyPVLd
 This is the basic HTML structure for each book graphic. 
 
 ```html
-    <div class="book">
+    <div class="book size-mid">
         <div class="cover">
             <img src="img/scrum1.png" alt="Book cover: Scrum Novice to Ninja" />
         </div>
@@ -19,13 +19,13 @@ This is the basic HTML structure for each book graphic.
 At their simplest, all books should render square and flat with a simple shadow. The `.book` class is the frame to splace into your layout. The `.cover` class works to mask the IMG down to the front only. We *could* use `clip: rect` here, but this ensures older and less sophisticated devices get a clean result.
 
 Three sizes are available `.size-small`, `.size-mid` and `.size-large`. These dimensions are set in the SASS variables. 
-```css
-    <div class="book size-mid">
+```html
+    <div class="book size-small">
         <div class="cover">
             ...
  ```           
 Adding `.view3d` allows the 3D CSS to be applied to the group, though the book will still be presented square until a 'posing' class is added.
-```css
+```html
     <div class="book size-mid view3d">
         <div class="cover">
             ...
