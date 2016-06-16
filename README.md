@@ -105,7 +105,9 @@ If you're only rendering one book, it's easy to just manually tuned the spine wi
 
 1. It there's not much variation in your spine width range, just go with it.
 2. If you're keen, you might chose to standardize all your raw book graphics to an average. There's some extra work in that.
-3. If you're REALLY keen, you'll need to somehow code the spine width into the modelling of each book. Maybe that's part of the naming convention that you can extract on-the-fly?  Maybe you calculate the spine width with maths. Spine width = Total bookwidth - (2 * cover width).
+3. If you're _REALLY_ keen, you'll need to dynamically code the spine width into the modelling of each book. Maybe that's part of the naming convention that you can extract on-the-fly?  Maybe you calculate the spine width with maths. 
+
+`spineWidth = totalBookwidth - (2 * cover width)` 
 
 I'm using method one for now.
 
@@ -118,6 +120,7 @@ Another created DIV called `.backcover` is inserted inside `.bookgroup` as well.
 ##TO-DO
 
 - [ ] Dynamic specular lighting effects (Using transparent gradients on multiple backgrounds).
+- [ ] Calculate real spine width from IMG.src
 - [x] Add grounding shadow
 
 
