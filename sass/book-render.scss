@@ -165,32 +165,58 @@ figure.view3d {
         left: 100%;
         transform-origin: (0% 50%);
         background: #ff0;
-        background: inherit;
+        background: inherit;// picks up BG image from parent
         background-position: center center
     }
 }
 
 
 /* =======  Posing classes ========== */
+/* oclock notation: Viewer stands at 12 and model faces hour markers
 
-.angle-10 .bookgroup {
-    transform: rotateY(10deg) rotateX(0deg); //default view
+     +------------+
+     |  Viewer    |
+     +------------+
+           12
+      11        1
+  10       ^        2
+           |
+ 9         |         3
+       +-model-+
+  8        +        4
+
+      7         5
+           6
+
++----------------------+
+|  Class = '.clock-12' |
++----------------------+
+
+
+*/
+
+.oclock-12 .bookgroup {
+    transform: rotateY(0deg) rotateX(0deg); //default view
 }
 
-.angle-30 .bookgroup {
+.oclock-6 .bookgroup {
+    transform: rotateY(180deg) rotateX(0deg); //reverse side
+}
+
+.oclock-1 .bookgroup {
     transform: rotateY(30deg) rotateX(0deg); //default view
 }
 
-.angle-60 .bookgroup {
+.oclock-11 .bookgroup {
+    transform: rotateY(-30deg) rotateX(0deg); //default view
+}
+
+.oclock-2 .bookgroup {
+    transform: rotateY(60deg) rotateX(0deg); //default view
+}
+
+.oclock-10 .bookgroup {
     transform: rotateY(-60deg) rotateX(0deg); //default view
-}
-
-.angle-90 .bookgroup {
-    transform: rotateY(-90deg) rotateX(0deg); //default view
-}
-
-.angle-270 .bookgroup {
-    transform: rotateY(50deg) rotateX(0deg); //default view
 }
 
 .hover:hover .bookgroup {
