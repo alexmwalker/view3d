@@ -102,11 +102,13 @@ I'm using method one for now.
 
 ## JavaScript
 
-The scripting creates a wrapping DIV around the `.cover` called `.bookgroup`. This is the DOM element we 'pose'.
+The script creates a wrapping DIV around the `.cover` called `.bookgroup`. This is the DOM element we use to 'pose' the model.
 
 Another created DIV called `.backcover` is inserted inside `.bookgroup` as well. That's all the structure we need to work with. We get the image source of the current book and write it into the background-image of `.backcover`. The spine is an `:after` pseudo element of `.backcover`. Happily, we can inherit the background-image from `.backcover` and center it.
 
+##TO-DO
 
+[ ] Dynamic specular lighting effects (Using transparent gradients on multiple backgrounds).
 
 
 
