@@ -74,6 +74,7 @@ Lastly you can choose to make the model react to the mouse by adding the `.hover
 ## Sass
 
 The Sass file generates a set of dimensions for the various model sizes off the back of three numbers.
+
 ```sass
     $height-small: 150px;
     $height-mid: 300px;
@@ -101,15 +102,15 @@ A number between 2 and 5 times the model height is about right for a book, DVD o
 
 One challenge I haven't totally nailed at the moment: Items like DVDs and Blu-rays are easy because they have a standardized spine thickness. However, as we know, books vary in spine width based on page numbers. 
 
-If you're only rendering one book, it's easy to just manually tuned the spine width (the Sass variable `$spine-ratio: 0.06;` as a factor of the model height). However, if you're rendering multiple books, you have a decision to make.
+If you're only rendering one book, it's easy to just manually tuned the spine width (the Sass variable `$spine-ratio: 0.06;` as a factor of the model height). However, if you're rendering multiple books on a page, you have a decision to make.
 
-1. It there's not much variation in your spine width range, just go with it.
-2. If you're keen, you might chose to standardize all your raw book graphics to an average. There's some extra work in that.
+1. If there's not wide variation in your spine width range, just go with it. Some will crop a little - some will underlap but that may not be a huge visual issue 
+2. If you're keen, you might chose to standardize all your raw book graphics to a preset spine width. There's some extra work in that.
 3. If you're _REALLY_ keen, you'll need to dynamically code the spine width into the modelling of each book. Maybe that's part of the naming convention that you can extract on-the-fly?  Maybe you calculate the spine width with maths. 
 
 `spineWidth = totalBookwidth - (2 * cover width)` 
 
-I'm using method one for now.
+I'm 'satisficing' with method 1 for now.
 
 ## JavaScript
 
