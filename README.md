@@ -56,7 +56,7 @@ In this system, the viewer stands at 12 o'clock and the model is placed in the m
         |  Class = '.clock-12' |
         +----------------------+
 
-If `.oclock-6` class show the viewer the reverse side of the model.
+The `.oclock-6` class show the viewer the reverse side of the model.
 
 Of course, you're welcome to create your own poses to suit the product and layout you're working with.
 
