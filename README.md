@@ -1,11 +1,11 @@
 # View3d - Making all your Ds 3.
 
-Renders any flat single-piece cover graphic into a 3d posable model. Ideal for dynamic book renderings, but useful for displaying DVD boxes, Blu-rays, Video Game packaging, software boxes and any other essentially cubic object.
+This module renders any flat, single-piece, cover graphic into a 3d posable model using HTML, CSS & a little JS. It's ideal for dynamic book renderings, but useful for displaying any DVD boxes, Blu-rays, Video Game packaging, software boxes, matchboxes or _any_ other essentially cubic object.
 
 
 ![Demo: Flat image to 3d](https://cdn.rawgit.com/alexmwalker/view3d/master/img/demo.jpg?3=new1)
 
-Play with the demo here: http://codepen.io/alexmwalker/pen/EyPVLd
+Play with the Codepen demo here: http://codepen.io/alexmwalker/pen/EyPVLd
 
 ## Basic HTML 
 
@@ -19,7 +19,9 @@ This is the basic HTML structure for each book graphic.
     </div>
 ```
 
-At their simplest, all books should render square and flat with a simple shadow. The `.book` class is the frame to splace into your layout. The `.cover` class works to mask the IMG down to the front only. We *could* use `clip: rect` here, but this ensures older and less sophisticated devices get a clean result.
+At their simplest, all books should render square and flat with a simple shadow. The `.book` class is the frame to place into your layout. Currently `.book` is the only 'top-level' object class, but ultimately classes like `.dvd` and `.xbox` would exist to render edges and proportions for those media types. 
+
+The `.cover` class works to mask the IMG down to the front only. Yes, we *could* use `clip: rect` here, but this old-school method ensures older and less sophisticated devices at least get a clean, clipped result.
 
 Three sizes are available `.size-small`, `.size-mid` and `.size-large`. These dimensions are set in the SASS variables. 
 ```html
