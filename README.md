@@ -100,6 +100,8 @@ A number between 2 and 5 times the model height is about right for a book, DVD o
 | `.oclock-[hour]`                      | position   | Poses the 3d model by rotating to face clock positions - `.oclock-12` has the model facing directly at the viewer. `.oclock-6` shows the reverse side.                                                                                                                                                                                                                                                               |
 | .hover                              | behavioral | An hover transition animation of the 3d model.                                                                                                                                                                                                                                                                                                                                                                    |
 
+The top and book edges of the book are pseudo elements of `.bookgroup`. The right and left edges are pseudo elements of `.backcover`. 
+
 ### Note
 
 One challenge I haven't totally nailed at the moment: Items like DVDs and Blu-rays are easy because they have a standardized spine thickness. However, as we know, books vary in spine width based on page numbers. 
@@ -116,9 +118,11 @@ I'm 'satisficing' with method 1 for now.
 
 ## JavaScript
 
-The script creates a wrapping DIV around the `.cover` called `.bookgroup`. This is the DOM element we use to 'pose' the model.
+This rendering method doesn't demand the use of Javascript. We could get the same result with just CSS and HTML. However Javascript allows us keep the static HTML simpler, and then build slightly more complicated DOM structure only when we need it.
 
-Another created DIV called `.backcover` is inserted inside `.bookgroup` as well. That's all the structure we need to work with. We get the image source of the current book and write it into the background-image of `.backcover`. The spine is an `:after` pseudo element of `.backcover`. Happily, we can inherit the background-image from `.backcover` and center it.
+The script creates a wrapping DIV called `.bookgroup` around the `.cover` object. This is the DOM element we use to 'pose' the model.
+
+Another created DIV called `.backcover` is inserted inside `.bookgroup`. That's all the structure we need to work with. We get the image source of the current book and write it into the background-image of `.backcover`. The spine is an `:after` pseudo element of `.backcover`. Happily, we can inherit the background-image from `.backcover` and center it.
 
 ##TO-DO
 
