@@ -37,13 +37,16 @@ Adding `.view3d` allows the 3D CSS to be applied to the group, though the book w
 ```  
 ### Posing Classes
 
-Posing classes are used to rotate and position the 3d model. These classes have no effect without the presense of the `.view3d` class. I'm using a clock-centric class system to provide a half dozen basic 'poses'.
+Posing classes are used to rotate and position the 3d model. These classes have no effect without the presense of the `.view3d` class. 
 ```css
     <div class="book size-mid view3d oclock-2">
         <div class="cover">
             ...
 ```
-In this system, the viewer stands at 12 o'clock and the model is placed in the middle of the clock. If the `.oclock-12` is applied to the book, the book will face directly at the viewer (or no posing class, as this is the default).
+
+#### Tick Tock 
+
+I'm using a 'clock-centric' class system to provide a half dozen basic 'poses'. In this system, the viewer stands at 12 o'clock and the model is placed in the middle of the clock. If the `.oclock-12` is applied to the book, the book will face directly at the viewer (or no posing class, as this is the default).
 
              +------------+
              |   Viewer   |
