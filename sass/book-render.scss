@@ -1,5 +1,5 @@
 @mixin makemearealboy {
-  // used a lot on :before :after pseudo elements
+  // used to set up :before :after pseudo elements
   display: block;
   content: '';
   position: absolute;
@@ -7,10 +7,15 @@
   left: 0;
 }
 
-$paperedge: #eee; // a CSS gradient might be nicer here
-body {
-  font-family: sans-serif;
-}
+$paperedge: #eee; // TODO: the paper edges of the book - a subtle #fefefe -> #f1f1f1 CSS gradient might be nicer here
+
+$lighting-effect: linear-gradient(100deg,
+    rgba(255, 255, 255, .7) 0%,
+    rgba(0, 0, 0, 00) 29%,
+    rgba(0, 0, 0, 0.3) 79%,
+    rgba(255, 255, 255, 0) 100%); // mostly transparent white and black reflections
+
+
 
 
 /*
@@ -109,7 +114,7 @@ figure.view3d {
     @include makemearealboy;
     height: 100%;
     width: 100%;
-    background: linear-gradient(100deg, rgba(255, 255, 255, .7) 0%, rgba(0, 0, 0, 00) 29%, rgba(0, 0, 0, 0.3) 79%, rgba(255, 255, 255, 0) 100%);
+    background: $lighting-effect;
     top: 0;
     left: 0;
     position: relative;
@@ -245,11 +250,5 @@ figure.view3d {
 }
 
 
-/* ++++++++  Table decoration ++++++++++*/
 
-table {
-  font-size: 12px;
-  td {
-    padding: 1em
-  }
-}
+

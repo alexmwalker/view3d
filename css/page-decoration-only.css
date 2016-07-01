@@ -1,0 +1,13 @@
+/* line 1, /Users/alexmwalker/ownCloud/Sites/view3d/view3d/sass/page-decoration-only.scss */
+body {
+  font-family: sans-serif; }
+
+/* ++++++++  Table decoration ++++++++++*/
+/* line 7, /Users/alexmwalker/ownCloud/Sites/view3d/view3d/sass/page-decoration-only.scss */
+table {
+  font-size: 12px; }
+  /* line 9, /Users/alexmwalker/ownCloud/Sites/view3d/view3d/sass/page-decoration-only.scss */
+  table td {
+    padding: 1em; }
+
+/*# sourceMappingURL=page-decoration-only.css.map */
