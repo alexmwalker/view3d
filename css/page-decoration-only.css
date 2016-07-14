@@ -1,12 +1,18 @@
-/* line 1, /Users/alexmwalker/ownCloud/Sites/view3d/view3d/sass/page-decoration-only.scss */
+/*
+
++++++++    All styles used in decoration    ++++++
+++++++  Not necessary in the 3d rendering  +++++++
+
+*/
+/* line 8, /Users/alexmwalker/ownCloud/Sites/view3d/view3d/sass/page-decoration-only.scss */
 body {
   font-family: sans-serif; }
 
 /* ++++++++  Table decoration ++++++++++*/
-/* line 7, /Users/alexmwalker/ownCloud/Sites/view3d/view3d/sass/page-decoration-only.scss */
+/* line 14, /Users/alexmwalker/ownCloud/Sites/view3d/view3d/sass/page-decoration-only.scss */
 table {
   font-size: 12px; }
-  /* line 9, /Users/alexmwalker/ownCloud/Sites/view3d/view3d/sass/page-decoration-only.scss */
+  /* line 16, /Users/alexmwalker/ownCloud/Sites/view3d/view3d/sass/page-decoration-only.scss */
   table td {
     padding: 1em; }
 

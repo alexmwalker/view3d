@@ -1,26 +1,17 @@
 {
+    "sass.enabled": false,
+    "sass.compiler": "",
     "path": {
-        "sass/book-render.scss": {
-            "sass.enabled": true
-            , "sass.options": {
-                "outputDir": "../css/"
-                , "imagePath": null
-                , "sourceComments": "map"
-                , "outputStyle": "compressed"
-            }
-        }
-    }
-}
-{
-    "path": {
-        "sass/page-decoration-only.scss": {
-            "sass.enabled": true
-            , "sass.options": {
-                "outputDir": "../css/"
-                , "imagePath": null
-                , "sourceComments": "map"
-                , "outputStyle": "compressed"
-            }
+        "scss/app.scss": {
+            "sass.enabled": true,
+            "sass.options": {
+                "includePaths": [],
+                "outputDir": "../css/",
+                "imagePath": null,
+                "sourceComments": false,
+                "outputStyle": "nested"
+            },
+            "linting.collapsed": true
         }
     }
 }

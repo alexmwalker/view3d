@@ -259,10 +259,13 @@ figure.view3d {
 
 .hover:hover .bookgroup {
   transform: rotateY(30deg) scale(1.15);
-  transition: transform 1.25s ease-in;
-  animation: spin 6s infinite linear 1.2s;
+  //transition: transform 1.25s ease-in;
+  //animation: spin 6s infinite linear 1.2s;
 }
+.hover:hover .backcover{
+  animation: reflection 6s infinite linear 1.2s;
 
+}
 @keyframes spin {
   0% {
     transform: rotateY(30deg) scale(1.15);
