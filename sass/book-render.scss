@@ -22,8 +22,8 @@ $lighting-effect: linear-gradient(100deg,
  $aspect-ratio is 7:9 (.76) ratio for all SP books and shouldn't change
  unless the book format changes. */
 
-$aspect-ratio: 0.76;
-$spine-ratio: 0.06;
+$aspect-ratio:     0.76;
+$spine-ratio:      0.06;
 $book-perspective: 3.5;
 
 /* -- Preset Book Display Sizes -- */
@@ -32,19 +32,19 @@ $book-perspective: 3.5;
 /* WIDTHS  */
 
 $height-small: 150px;
-$height-mid: 300px;
+$height-mid:   300px;
 $height-large: 480px;
 
 /* HEIGHTS  */
 
-$width-small: $height-small*$aspect-ratio;
-$width-mid: $height-mid * $aspect-ratio;
+$width-small: $height-small * $aspect-ratio;
+$width-mid:   $height-mid   * $aspect-ratio;
 $width-large: $height-large * $aspect-ratio;
 
 /* SPINES  */
 
-$spine-small: $height-small*$spine-ratio;
-$spine-mid: $height-mid * $spine-ratio;
+$spine-small: $height-small * $spine-ratio;
+$spine-mid:   $height-mid   * $spine-ratio;
 $spine-large: $height-large * $spine-ratio;
 
 /* Calculate other book dimensions */
@@ -93,6 +93,8 @@ $spine-large: $height-large * $spine-ratio;
   margin: 2em;
   position: relative;
 }
+
+.dvd{}
 
 figure.view3d {
   // book container
@@ -211,29 +213,49 @@ figure.view3d {
 //+----------------------+
 //|  Class = '.clock-12' |
 //+----------------------+
+
 .oclock-12 .bookgroup {
   transform: rotateY(0deg) rotateX(0deg); //default view
 }
-
-.oclock-6 .bookgroup {
-  transform: rotateY(180deg) rotateX(0deg); //reverse side
-}
-
 .oclock-1 .bookgroup {
   transform: rotateY(-30deg) rotateX(0deg); //default view
 }
-
-.oclock-11 .bookgroup {
-  transform: rotateY(30deg) rotateX(0deg); //default view
-}
-
 .oclock-2 .bookgroup {
   transform: rotateY(-60deg) rotateX(0deg); //default view
 }
-
-.oclock-10 .bookgroup {
-  transform: rotateY(60deg) rotateX(0deg); //default view
+.oclock-3 .bookgroup {
+  transform: rotateY(-90deg) rotateX(0deg); //default view
 }
+.oclock-4 .bookgroup {
+  transform: rotateY(-120deg) rotateX(0deg); //default view
+}
+.oclock-5 .bookgroup {
+  transform: rotateY(-150deg) rotateX(0deg); //default view
+}
+.oclock-6 .bookgroup {
+  transform: rotateY(180deg) rotateX(0deg); //reverse side
+}
+.oclock-7 .bookgroup {
+  transform: rotateY(-210deg) rotateX(0deg); //default view
+}
+.oclock-8 .bookgroup {
+  transform: rotateY(-240deg) rotateX(0deg); //default view
+}
+.oclock-9 .bookgroup {
+  transform: rotateY(-270deg) rotateX(0deg); //default view
+}
+.oclock-10 .bookgroup {
+  transform: rotateY(-300deg) rotateX(0deg); //default view
+}
+.oclock-11 .bookgroup {
+  transform: rotateY(-330deg) rotateX(0deg); //default view
+}
+
+
+
+
+
+
 
 .hover:hover .bookgroup {
   transform: rotateY(30deg) scale(1.15);
@@ -247,6 +269,14 @@ figure.view3d {
   }
   100% {
     transform: rotateY(390deg) scale(1.15);
+  }
+}
+@keyframes reflection {
+  0% {
+    background-position: left;
+  }
+  100% {
+    background-position: right;
   }
 }
 
