@@ -1,11 +1,11 @@
 # View3d - Making all your Ds 3.
 
-Renders any flat single-piece cover graphic into a 3d posable model. Ideal for dynamic book renderings, but useful for displaying DVD boxes, Blu-rays, Video Game packaging, software boxes and any other essentially cubic object.
+This module renders any flat, single-piece, cover graphic into a 3d posable model using HTML, CSS & a little JS. It's ideal for dynamic book renderings, but useful for displaying any DVD boxes, Blu-rays, Video Game packaging, software boxes, matchboxes or _any_ other essentially cubic object.
 
 
 ![Demo: Flat image to 3d](https://cdn.rawgit.com/alexmwalker/view3d/master/img/demo.jpg?3=new1)
 
-Play with the demo here: http://codepen.io/alexmwalker/pen/EyPVLd
+Play with the Codepen demo here: http://codepen.io/alexmwalker/pen/EyPVLd
 
 ## Basic HTML 
 
@@ -19,7 +19,9 @@ This is the basic HTML structure for each book graphic.
     </div>
 ```
 
-At their simplest, all books should render square and flat with a simple shadow. The `.book` class is the frame to splace into your layout. The `.cover` class works to mask the IMG down to the front only. We *could* use `clip: rect` here, but this ensures older and less sophisticated devices get a clean result.
+At their simplest, all books should render square and flat with a simple shadow. The `.book` class is the frame to place into your layout. Currently `.book` is the only 'top-level' object class, but ultimately classes like `.dvd` and `.xbox` would exist to render edges and proportions for those media types. 
+
+The `.cover` class works to mask the IMG down to the front only. Yes, we *could* use `clip: rect` here, but this old-school method ensures older and less sophisticated devices at least get a clean, clipped result.
 
 Three sizes are available `.size-small`, `.size-mid` and `.size-large`. These dimensions are set in the SASS variables. 
 ```html
@@ -35,13 +37,16 @@ Adding `.view3d` allows the 3D CSS to be applied to the group, though the book w
 ```  
 ### Posing Classes
 
-Posing classes are used to rotate and position the 3d model. These classes have no effect without the presense of the `.view3d` class. I'm using a clock-centric class system to provide a half dozen basic 'poses'.
+Posing classes are used to rotate and position the 3d model. These classes have no effect without the presense of the `.view3d` class. 
 ```css
     <div class="book size-mid view3d oclock-2">
         <div class="cover">
             ...
 ```
-In this system, the viewer stands at 12 o'clock and the model is placed in the middle of the clock. If the `.oclock-12` is applied to the book, the book will face directly at the viewer (or no posing class, as this is the default).
+
+#### Tick Tock 
+
+I'm using a 'clock-centric' class system to provide a half dozen basic 'poses'. In this system, the viewer stands at 12 o'clock and the model is placed in the middle of the clock. If the `.oclock-12` is applied to the book, the book will face directly at the viewer (or no posing class, as this is the default).
 
              +------------+
              |   Viewer   |
@@ -98,6 +103,8 @@ A number between 2 and 5 times the model height is about right for a book, DVD o
 | `.oclock-[hour]`                      | position   | Poses the 3d model by rotating to face clock positions - `.oclock-12` has the model facing directly at the viewer. `.oclock-6` shows the reverse side.                                                                                                                                                                                                                                                               |
 | .hover                              | behavioral | An hover transition animation of the 3d model.                                                                                                                                                                                                                                                                                                                                                                    |
 
+The top and book edges of the book are pseudo elements of `.bookgroup`. The right and left edges are pseudo elements of `.backcover`. 
+
 ### Note
 
 One challenge I haven't totally nailed at the moment: Items like DVDs and Blu-rays are easy because they have a standardized spine thickness. However, as we know, books vary in spine width based on page numbers. 
@@ -114,9 +121,11 @@ I'm 'satisficing' with method 1 for now.
 
 ## JavaScript
 
-The script creates a wrapping DIV around the `.cover` called `.bookgroup`. This is the DOM element we use to 'pose' the model.
+This rendering method doesn't demand the use of Javascript. We could get the same result with just CSS and HTML. However Javascript allows us keep the static HTML simpler, and then build slightly more complicated DOM structure only when we need it.
 
-Another created DIV called `.backcover` is inserted inside `.bookgroup` as well. That's all the structure we need to work with. We get the image source of the current book and write it into the background-image of `.backcover`. The spine is an `:after` pseudo element of `.backcover`. Happily, we can inherit the background-image from `.backcover` and center it.
+The script creates a wrapping DIV called `.bookgroup` around the `.cover` object. This is the DOM element we use to 'pose' the model.
+
+Another created DIV called `.backcover` is inserted inside `.bookgroup`. That's all the structure we need to work with. We get the image source of the current book and write it into the background-image of `.backcover`. The spine is an `:after` pseudo element of `.backcover`. Happily, we can inherit the background-image from `.backcover` and center it.
 
 ##TO-DO
 
