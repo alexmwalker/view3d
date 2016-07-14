@@ -114,7 +114,7 @@ figure.view3d {
     @include makemearealboy;
     height: 100%;
     width: 100%;
-    background: $lighting-effect;
+    background: url(../img/lighting.png);
     top: 0;
     left: 0;
     position: relative;
@@ -165,7 +165,8 @@ figure.view3d {
   transform-style: preserve-3d;
   height: 100%;
   width: 100%;
-  background-size: auto 100%;
+  background: red, red;
+  background-size: auto 100%, auto 100%;
   position: absolute;
   top: 0px;
   z-index: -1;
