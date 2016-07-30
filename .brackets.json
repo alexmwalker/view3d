@@ -1,17 +1,26 @@
+
+
 {
     "sass.enabled": false,
-    "sass.compiler": "",
     "path": {
-        "scss/app.scss": {
+        "sass/book-render.scss": {
             "sass.enabled": true,
             "sass.options": {
-                "includePaths": [],
                 "outputDir": "../css/",
                 "imagePath": null,
-                "sourceComments": false,
+                "sourceComments": "map",
                 "outputStyle": "nested"
-            },
-            "linting.collapsed": true
+            }
+    },
+
+        "sass/page-decoration-only.scss": {
+            "sass.enabled": true,
+            "sass.options": {
+                "outputDir": "../css/",
+                "imagePath": null,
+                "sourceComments": "map",
+                "outputStyle": "nested"
+            }
         }
     }
 }
