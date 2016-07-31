@@ -1,5 +1,3 @@
-
-
 {
     "sass.enabled": false,
     "path": {
@@ -10,9 +8,9 @@
                 "imagePath": null,
                 "sourceComments": "map",
                 "outputStyle": "nested"
-            }
-    },
-
+            },
+            "brackets-git.gitPath": "git"
+        },
         "sass/page-decoration-only.scss": {
             "sass.enabled": true,
             "sass.options": {
