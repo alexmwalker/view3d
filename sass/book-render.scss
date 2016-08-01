@@ -41,6 +41,10 @@ $width-small: $height-small * $aspect-ratio;
 $width-mid:   $height-mid   * $aspect-ratio;
 $width-large: $height-large * $aspect-ratio;
 
+/* LIGHTING  */
+$light-position: 45; // DEGREES: 0 is lit from camera - 180 is backlit - 45 is a nice default
+
+
 /* SPINES  */
 
 $spine-small: $height-small * $spine-ratio;
@@ -116,7 +120,11 @@ figure.view3d {
     @include makemearealboy;
     height: 100%;
     width: 100%;
-    background: url(../img/lighting.png);
+    background: url(),
+                url(),
+                url(../img/light.png);
+    background-position: 0 0, 0 0, -50% 0;
+    background-size: 100% 100%, 100% 100%, 200% auto;
     top: 0;
     left: 0;
     position: relative;
@@ -258,13 +266,13 @@ figure.view3d {
 
 
 .hover:hover .bookgroup {
-  transform: rotateY(30deg) scale(1.15);
+  //transform: rotateY(30deg) scale(1.15);
   //transition: transform 1.25s ease-in;
   //animation: spin 6s infinite linear 1.2s;
 }
-.hover:hover .backcover{
-  animation: reflection 6s infinite linear 1.2s;
-
+.hover .bookgroup  .cover:hover{
+  animation: reflection 6s infinite linear;
+  border: 5px red dashed
 }
 @keyframes spin {
   0% {
@@ -276,10 +284,12 @@ figure.view3d {
 }
 @keyframes reflection {
   0% {
-    background-position: left;
+    background-position: -100% 0%, -100% 0%, -100% 0%;
+    transform:rotate(0deg);
   }
   100% {
-    background-position: right;
+    background-position: 100% 0%, 100% 0%, 100% 0%;
+      transform:rotate(180deg);
   }
 }
 

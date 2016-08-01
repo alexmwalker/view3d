@@ -4,58 +4,59 @@
 /* -- Preset Book Display Sizes -- */
 /* WIDTHS  */
 /* HEIGHTS  */
+/* LIGHTING  */
 /* SPINES  */
 /* Calculate other book dimensions */
-/* line 52, /Users/alexmwalker/ownCloud/Sites/view3d/view3d/sass/book-render.scss */
+/* line 56, /Users/alexmwalker/ownCloud/Sites/view3d/view3d/sass/book-render.scss */
 .book.size-small {
   height: 150px;
   width: 114px;
   perspective: 525px; }
-  /* line 56, /Users/alexmwalker/ownCloud/Sites/view3d/view3d/sass/book-render.scss */
+  /* line 60, /Users/alexmwalker/ownCloud/Sites/view3d/view3d/sass/book-render.scss */
   .book.size-small .backcover {
     transform: rotateY(180deg) translateZ(9px); }
-    /* line 59, /Users/alexmwalker/ownCloud/Sites/view3d/view3d/sass/book-render.scss */
+    /* line 63, /Users/alexmwalker/ownCloud/Sites/view3d/view3d/sass/book-render.scss */
     .book.size-small .backcover:before,
     .book.size-small .backcover:after {
       width: 9px; }
 
-/* line 65, /Users/alexmwalker/ownCloud/Sites/view3d/view3d/sass/book-render.scss */
+/* line 69, /Users/alexmwalker/ownCloud/Sites/view3d/view3d/sass/book-render.scss */
 .book.size-mid {
   height: 300px;
   width: 228px;
   perspective: 1050px; }
-  /* line 69, /Users/alexmwalker/ownCloud/Sites/view3d/view3d/sass/book-render.scss */
+  /* line 73, /Users/alexmwalker/ownCloud/Sites/view3d/view3d/sass/book-render.scss */
   .book.size-mid .backcover {
     transform: rotateY(180deg) translateZ(18px); }
-    /* line 72, /Users/alexmwalker/ownCloud/Sites/view3d/view3d/sass/book-render.scss */
+    /* line 76, /Users/alexmwalker/ownCloud/Sites/view3d/view3d/sass/book-render.scss */
     .book.size-mid .backcover:before,
     .book.size-mid .backcover:after {
       width: 18px; }
 
-/* line 78, /Users/alexmwalker/ownCloud/Sites/view3d/view3d/sass/book-render.scss */
+/* line 82, /Users/alexmwalker/ownCloud/Sites/view3d/view3d/sass/book-render.scss */
 .book.size-large {
   height: 480px;
   width: 364.8px;
   perspective: 1680px; }
-  /* line 82, /Users/alexmwalker/ownCloud/Sites/view3d/view3d/sass/book-render.scss */
+  /* line 86, /Users/alexmwalker/ownCloud/Sites/view3d/view3d/sass/book-render.scss */
   .book.size-large .backcover {
     transform: rotateY(180deg) translateZ(28.8px); }
-    /* line 85, /Users/alexmwalker/ownCloud/Sites/view3d/view3d/sass/book-render.scss */
+    /* line 89, /Users/alexmwalker/ownCloud/Sites/view3d/view3d/sass/book-render.scss */
     .book.size-large .backcover:before,
     .book.size-large .backcover:after {
       width: 28.8px; }
 
-/* line 91, /Users/alexmwalker/ownCloud/Sites/view3d/view3d/sass/book-render.scss */
+/* line 95, /Users/alexmwalker/ownCloud/Sites/view3d/view3d/sass/book-render.scss */
 .book {
   margin: 2em;
   position: relative; }
 
-/* line 99, /Users/alexmwalker/ownCloud/Sites/view3d/view3d/sass/book-render.scss */
+/* line 103, /Users/alexmwalker/ownCloud/Sites/view3d/view3d/sass/book-render.scss */
 figure.view3d {
   perspective-origin: 50% 50%;
   float: left; }
 
-/* line 106, /Users/alexmwalker/ownCloud/Sites/view3d/view3d/sass/book-render.scss */
+/* line 110, /Users/alexmwalker/ownCloud/Sites/view3d/view3d/sass/book-render.scss */
 .cover {
   /* This is a mask to crop the IMG to only cover */
   position: relative;
@@ -64,7 +65,7 @@ figure.view3d {
   width: 100%;
   z-index: 1;
   box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.15), 3px 3px 4px rgba(0, 0, 0, 0.3), 6px 6px 4px rgba(0, 0, 0, 0.1); }
-  /* line 114, /Users/alexmwalker/ownCloud/Sites/view3d/view3d/sass/book-render.scss */
+  /* line 118, /Users/alexmwalker/ownCloud/Sites/view3d/view3d/sass/book-render.scss */
   .cover:after {
     /* the reflection effect across the IMG cover */
     display: block;
@@ -74,23 +75,25 @@ figure.view3d {
     left: 0;
     height: 100%;
     width: 100%;
-    background: url(../img/lighting.png);
+    background: url(), url(), url(../img/light.png);
+    background-position: 0 0, 0 0, -50% 0;
+    background-size: 100% 100%, 100% 100%, 200% auto;
     top: 0;
     left: 0;
     position: relative;
     z-index: 12; }
 
-/* line 127, /Users/alexmwalker/ownCloud/Sites/view3d/view3d/sass/book-render.scss */
+/* line 135, /Users/alexmwalker/ownCloud/Sites/view3d/view3d/sass/book-render.scss */
 .view3d .cover {
   box-shadow: none;
   /* remove anchoring shadow in 3D view */ }
 
-/* line 132, /Users/alexmwalker/ownCloud/Sites/view3d/view3d/sass/book-render.scss */
+/* line 140, /Users/alexmwalker/ownCloud/Sites/view3d/view3d/sass/book-render.scss */
 .cover img {
   float: right;
   height: 100%; }
 
-/* line 137, /Users/alexmwalker/ownCloud/Sites/view3d/view3d/sass/book-render.scss */
+/* line 145, /Users/alexmwalker/ownCloud/Sites/view3d/view3d/sass/book-render.scss */
 .view3d .bookgroup {
   transform-style: preserve-3d;
   transform-origin: 50% 50%;
@@ -99,7 +102,7 @@ figure.view3d {
   width: 100%;
   position: relative;
   transition: transform 1.5s ease-in; }
-  /* line 147, /Users/alexmwalker/ownCloud/Sites/view3d/view3d/sass/book-render.scss */
+  /* line 155, /Users/alexmwalker/ownCloud/Sites/view3d/view3d/sass/book-render.scss */
   .view3d .bookgroup:before,
   .view3d .bookgroup:after {
     display: block;
@@ -114,12 +117,12 @@ figure.view3d {
     width: 100%;
     height: 6%;
     transform: rotateY(0deg) rotateX(-90deg) translateX(0px); }
-  /* line 158, /Users/alexmwalker/ownCloud/Sites/view3d/view3d/sass/book-render.scss */
+  /* line 166, /Users/alexmwalker/ownCloud/Sites/view3d/view3d/sass/book-render.scss */
   .view3d .bookgroup:after {
     top: 100%;
     box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.75), 2px 2px 15px rgba(0, 0, 0, 0.5); }
 
-/* line 165, /Users/alexmwalker/ownCloud/Sites/view3d/view3d/sass/book-render.scss */
+/* line 173, /Users/alexmwalker/ownCloud/Sites/view3d/view3d/sass/book-render.scss */
 .backcover {
   transform-style: preserve-3d;
   height: 100%;
@@ -130,7 +133,7 @@ figure.view3d {
   top: 0px;
   z-index: -1;
   right: 0px; }
-  /* line 177, /Users/alexmwalker/ownCloud/Sites/view3d/view3d/sass/book-render.scss */
+  /* line 185, /Users/alexmwalker/ownCloud/Sites/view3d/view3d/sass/book-render.scss */
   .backcover:before,
   .backcover:after {
     display: block;
@@ -143,7 +146,7 @@ figure.view3d {
     transform: rotateY(90deg);
     transform-origin: 0% 50%;
     z-index: 9; }
-  /* line 186, /Users/alexmwalker/ownCloud/Sites/view3d/view3d/sass/book-render.scss */
+  /* line 194, /Users/alexmwalker/ownCloud/Sites/view3d/view3d/sass/book-render.scss */
   .backcover:after {
     transform: rotateY(90deg) translateZ(0px);
     left: 100%;
@@ -152,62 +155,58 @@ figure.view3d {
     background-position: center center; }
 
 /* =======  Posing classes ========== */
-/* line 217, /Users/alexmwalker/ownCloud/Sites/view3d/view3d/sass/book-render.scss */
+/* line 225, /Users/alexmwalker/ownCloud/Sites/view3d/view3d/sass/book-render.scss */
 .oclock-12 .bookgroup {
   transform: rotateY(0deg) rotateX(0deg); }
 
-/* line 220, /Users/alexmwalker/ownCloud/Sites/view3d/view3d/sass/book-render.scss */
+/* line 228, /Users/alexmwalker/ownCloud/Sites/view3d/view3d/sass/book-render.scss */
 .oclock-1 .bookgroup {
   transform: rotateY(-30deg) rotateX(0deg); }
 
-/* line 223, /Users/alexmwalker/ownCloud/Sites/view3d/view3d/sass/book-render.scss */
+/* line 231, /Users/alexmwalker/ownCloud/Sites/view3d/view3d/sass/book-render.scss */
 .oclock-2 .bookgroup {
   transform: rotateY(-60deg) rotateX(0deg); }
 
-/* line 226, /Users/alexmwalker/ownCloud/Sites/view3d/view3d/sass/book-render.scss */
+/* line 234, /Users/alexmwalker/ownCloud/Sites/view3d/view3d/sass/book-render.scss */
 .oclock-3 .bookgroup {
   transform: rotateY(-90deg) rotateX(0deg); }
 
-/* line 229, /Users/alexmwalker/ownCloud/Sites/view3d/view3d/sass/book-render.scss */
+/* line 237, /Users/alexmwalker/ownCloud/Sites/view3d/view3d/sass/book-render.scss */
 .oclock-4 .bookgroup {
   transform: rotateY(-120deg) rotateX(0deg); }
 
-/* line 232, /Users/alexmwalker/ownCloud/Sites/view3d/view3d/sass/book-render.scss */
+/* line 240, /Users/alexmwalker/ownCloud/Sites/view3d/view3d/sass/book-render.scss */
 .oclock-5 .bookgroup {
   transform: rotateY(-150deg) rotateX(0deg); }
 
-/* line 235, /Users/alexmwalker/ownCloud/Sites/view3d/view3d/sass/book-render.scss */
+/* line 243, /Users/alexmwalker/ownCloud/Sites/view3d/view3d/sass/book-render.scss */
 .oclock-6 .bookgroup {
   transform: rotateY(180deg) rotateX(0deg); }
 
-/* line 238, /Users/alexmwalker/ownCloud/Sites/view3d/view3d/sass/book-render.scss */
+/* line 246, /Users/alexmwalker/ownCloud/Sites/view3d/view3d/sass/book-render.scss */
 .oclock-7 .bookgroup {
   transform: rotateY(-210deg) rotateX(0deg); }
 
-/* line 241, /Users/alexmwalker/ownCloud/Sites/view3d/view3d/sass/book-render.scss */
+/* line 249, /Users/alexmwalker/ownCloud/Sites/view3d/view3d/sass/book-render.scss */
 .oclock-8 .bookgroup {
   transform: rotateY(-240deg) rotateX(0deg); }
 
-/* line 244, /Users/alexmwalker/ownCloud/Sites/view3d/view3d/sass/book-render.scss */
+/* line 252, /Users/alexmwalker/ownCloud/Sites/view3d/view3d/sass/book-render.scss */
 .oclock-9 .bookgroup {
   transform: rotateY(-270deg) rotateX(0deg); }
 
-/* line 247, /Users/alexmwalker/ownCloud/Sites/view3d/view3d/sass/book-render.scss */
+/* line 255, /Users/alexmwalker/ownCloud/Sites/view3d/view3d/sass/book-render.scss */
 .oclock-10 .bookgroup {
   transform: rotateY(-300deg) rotateX(0deg); }
 
-/* line 250, /Users/alexmwalker/ownCloud/Sites/view3d/view3d/sass/book-render.scss */
+/* line 258, /Users/alexmwalker/ownCloud/Sites/view3d/view3d/sass/book-render.scss */
 .oclock-11 .bookgroup {
   transform: rotateY(-330deg) rotateX(0deg); }
 
-/* line 260, /Users/alexmwalker/ownCloud/Sites/view3d/view3d/sass/book-render.scss */
-.hover:hover .bookgroup {
-  transform: rotateY(30deg) scale(1.15);
-  transition: transform 1.25s ease-in; }
-
-/* line 266, /Users/alexmwalker/ownCloud/Sites/view3d/view3d/sass/book-render.scss */
-.hover:hover .backcover {
-  animation: reflection 6s infinite linear 1.2s; }
+/* line 273, /Users/alexmwalker/ownCloud/Sites/view3d/view3d/sass/book-render.scss */
+.hover .bookgroup .cover:hover {
+  animation: reflection 6s infinite linear;
+  border: 5px red dashed; }
 
 @keyframes spin {
   0% {
@@ -217,8 +216,10 @@ figure.view3d {
 
 @keyframes reflection {
   0% {
-    background-position: left; }
+    background-position: -100% 0%, -100% 0%, -100% 0%;
+    transform: rotate(0deg); }
   100% {
-    background-position: right; } }
+    background-position: 100% 0%, 100% 0%, 100% 0%;
+    transform: rotate(180deg); } }
 
 /*# sourceMappingURL=book-render.css.map */
