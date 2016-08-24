@@ -87,10 +87,10 @@ The Sass file generates a set of dimensions for the various model sizes off the 
 ```
 These numbers can be changed to whatever you like.
 
-Perspective is currently set at 3.5 times the height of the model. In 3d CSS, this represents the distance between your eyeball and the model. It helps to understand CSS perspective to work with this number. 
+CSS `perspective` is currently set at 3.5 times the height of the model. In 3d CSS, this represents the distance between your eyeball and the model. It helps to have a solid grasp of CSS perspective to work with this number. 
 
-- When this distance (i.e. `perspective: 1200px`) is proportionally large (imagine a matchbox) the model will appear square and with little perspective distortion. 
-- When the distance between eye and model is _proportionally_ small (i.e. `perspective: 120px`) – imagine looking up at the Empire State Building – the model will be warped by perspective. 
+- When this distance is proportionally large (i.e. `perspective: 1200px`)  compared to the model (i.e. `height: 120px`) – imagine a matchbox – the model will appear square and with little perspective distortion. 
+- When the distance between eye and model is _proportionally_ small (i.e. `perspective: 120px`) – imagine looking up at the Empire State Building – the model will be highly warped by perspective. 
 
 A number between 2 and 5 times the model height is about right for a book, DVD or similar sized item on a desktop. Also be aware that this number can't be set as a percentage in CSS (but you can use Sass to calculate it that way).
 
