@@ -46,7 +46,7 @@ Posing classes are used to rotate and position the 3d model. These classes have 
 
 #### Tick Tock 
 
-I'm using a 'clock-centric' class system to provide a half dozen basic 'poses'. In this system, the viewer stands at 12 o'clock and the model is placed in the middle of the clock. If the `.oclock-12` is applied to the book, the book will face directly at the viewer (or no posing class, as this is the default).
+I'm using an 'analog clock-centric' CSS class system to provide a half dozen basic rotated 'poses'. In this system, the viewer stands at 12 o'clock and the model is placed in the middle of the clock. If the `.oclock-12` class is applied to the book, the book will face directly at the viewer (or with no posing class present, as this is the default).
 
              +------------+
              |   Viewer   |
@@ -132,5 +132,3 @@ Another created DIV called `.backcover` is inserted inside `.bookgroup`. That's 
 - [ ] Dynamic specular lighting effects (Using transparent gradients on multiple backgrounds).
 - [ ] Calculate real spine width from IMG.src
 - [x] Add grounding shadow
-
-
