@@ -222,3 +222,6 @@ figure.view3d {
     background-position: right; } }
 
 /*# sourceMappingURL=book-render.css.map */
+img{
+ max-width: none
+};
