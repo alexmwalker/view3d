@@ -1,6 +1,6 @@
 // `element` is the element you want to wrap
 
-var lightingeffect = "url(../img/lighting.png)";
+var lightingeffect = "url(https://raw.githubusercontent.com/alexmwalker/view3d/master/img/lighting.png)";
 
 function dimension() {
     var element = document.querySelectorAll(".view3d .cover");
