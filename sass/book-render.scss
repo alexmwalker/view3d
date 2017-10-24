@@ -15,7 +15,9 @@ $lighting-effect: linear-gradient(100deg,
     rgba(0, 0, 0, 0.3) 79%,
     rgba(255, 255, 255, 0) 100%); // mostly transparent white and black reflections
 
-
+img{ // some CSS resets set this to 100% - I don't want that
+ max-width: none
+};
 
 
 /*
