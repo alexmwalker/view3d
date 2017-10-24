@@ -109,10 +109,10 @@ The top and book edges of the book are pseudo elements of `.bookgroup`. The righ
 
 One challenge I haven't totally nailed at the moment: Items like DVDs and Blu-rays are easy because they have a standardized spine thickness. However, as we know, books vary in spine width based on page numbers. 
 
-If you're only rendering one book, it's easy to just manually tuned the spine width (the Sass variable `$spine-ratio: 0.06;` as a factor of the model height). However, if you're rendering multiple books on a page, you have a decision to make.
+If you're only rendering one book, it's easy to just manually tune the spine width (the Sass variable `$spine-ratio: 0.06;` as a factor of the model height). However, if you're rendering multiple books on a page, you have a decision to make.
 
-1. If there's not wide variation in your spine width range, just go with it. Some will crop a little - some will underlap but that may not be a huge visual issue 
-2. If you're keen, you might chose to standardize all your raw book graphics to a preset spine width. There's some extra work in that.
+1. If there's not wide variation in your spine width range, just go a middle-ground. Some will crop a little - some will underlap but that may not be a huge visual issue. 
+2. If you're keen, you might chose to standardize all your raw book graphics to a preset spine width - stretching or compressing the spine part of the graphic to a standardized width. There's some extra work in that. Maybe you PS Actions it?
 3. If you're _REALLY_ keen, you'll need to dynamically code the spine width into the modelling of each book. Maybe that's part of the naming convention that you can extract on-the-fly?  Maybe you calculate the spine width with maths. 
 
 `spineWidth = totalBookwidth - (2 * cover width)` 
@@ -127,8 +127,8 @@ The script creates a wrapping DIV called `.bookgroup` around the `.cover` object
 
 Another created DIV called `.backcover` is inserted inside `.bookgroup`. That's all the structure we need to work with. We get the image source of the current book and write it into the background-image of `.backcover`. The spine is an `:after` pseudo element of `.backcover`. Happily, we can inherit the background-image from `.backcover` and center it.
 
-##TO-DO
+## TO-DO
 
 - [ ] Dynamic specular lighting effects (Using transparent gradients on multiple backgrounds).
-- [ ] Calculate real spine width from IMG.src
+- [ ] Calculate and apply real spine-width from IMG.src
 - [x] Add grounding shadow
