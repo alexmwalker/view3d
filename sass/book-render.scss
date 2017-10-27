@@ -9,11 +9,10 @@
 
 $paperedge: #eee; // TODO: the paper edges of the book - a subtle #fefefe -> #f1f1f1 CSS gradient might be nicer here
 
-$lighting-effect: linear-gradient(95deg,
-    rgba(255, 255, 255, .5) 0%,
-    rgba(0, 0, 0, 00) 29%,
-    rgba(0, 0, 0, 0.3) 79%,
-    rgba(255, 255, 255, 0) 100%); // mostly transparent white and black reflections
+$lighting-effect: linear-gradient(100deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.2) 25%, rgba(0,0,0,0.25) 50%, rgba(255,255,255,0) 100%); // mostly transparent white and black reflections
+
+
+
 
 img{ // some CSS resets set this to 100% - I don't want that
  max-width: none
@@ -27,6 +26,10 @@ img{ // some CSS resets set this to 100% - I don't want that
 $aspect-ratio:     0.76;
 $spine-ratio:      0.06;
 $book-perspective: 3.5;
+
+/* -- Spin speed -- */
+
+$spin-speed: 12s; 
 
 /* -- Preset Book Display Sizes -- */
 
@@ -113,9 +116,11 @@ $spine-large: $height-large * $spine-ratio;
     @include makemearealboy;
     height: 100%;
     width: 100%;
-    background: $lighting-effect;
-    background-size: 200% 100%;
-    background-position: 0% 0%;
+    //opacity: .5;
+    background-image: $lighting-effect, none;
+    background-size: 500% 200%, auto 100%;  
+    background-position: -200% 100%, center top ; 
+    background-repeat: repeat;
     top: 0;
     left: 0;
     position: relative;
@@ -143,8 +148,7 @@ $spine-large: $height-large * $spine-ratio;
   position: relative;
   transition: transform 1.5s ease-in;
   &:before,
-  &:after {
-    // top edge
+  &:after { // top edge
     @include makemearealboy;
     transform-style: preserve-3d;
     background: $paperedge;
@@ -154,8 +158,7 @@ $spine-large: $height-large * $spine-ratio;
     height: (100%*$spine-ratio);
     transform: rotateY(0deg) rotateX(-90deg) translateX(0px); //default view
   }
-  &:after {
-    // base edge (inc 'grounding' shadow)
+  &:after { // base edge (inc 'grounding' shadow)
     top: 100%;
     box-shadow: 0px 0px 5px rgba(0, 0, 0, .75), 2px 2px 15px rgba(0, 0, 0, .5);
   }
@@ -167,7 +170,8 @@ $spine-large: $height-large * $spine-ratio;
   height: 100%;
   width: 100%;
   background: red, red;
-  background-size: auto 100%, auto 100%;
+  background-size: 500% 200%, auto 100%;  
+  background-position: -200% 100%, left top ;
   position: absolute;
   top: 0px;
   z-index: -1;
@@ -182,9 +186,10 @@ $spine-large: $height-large * $spine-ratio;
     transform-origin: (0% 50%);
     z-index: 9;
   }
-  &:after {
+  &:after { //spine 
     transform: rotateY(90deg) translateZ(0px);
     left: 100%;
+    background-size: 500% 200%, auto 100%;
     transform-origin: (0% 50%);
     background: inherit; // picks up BG image from parent (yay!)
     background-position: center center
@@ -257,31 +262,84 @@ $spine-large: $height-large * $spine-ratio;
 
 
 .hover:hover .bookgroup {
-  transform: rotateY(30deg) scale(1.15);
-  transition: transform 1.25s ease-in;
-  animation: spin 6s infinite linear 1.2s;
-}
-.hover:hover .backcover{
-  animation: reflection 3s infinite linear 1.2s;
+  transform: rotateY(30deg) scale(1.05);
+  transition: transform .35s ease-in-out;
+  animation: spin $spin-speed infinite linear .35s;
+  
+  .backcover{
+    animation: lightingeffect-back $spin-speed infinite ease-in-out ;
+    
+  }
+  .cover:after{ // this effectively replaces the *actual* IMG element
+  animation: lightingeffect-cover $spin-speed infinite ease-in-out (-$spin-speed/2); // delay: -half
+  //border: 4px cyan dashed;
+  }
 
+  .backcover:after{ // the spine
+  animation: lightingeffect-spine $spin-speed infinite ease-in-out (-$spin-speed/4);
+  //border: 4px red dashed;
+  }
 }
+
 @keyframes spin {
   0% {
-    transform: rotateY(30deg) scale(1.15);
+    transform: rotateY(30deg) scale(1.05);
   }
   100% {
-    transform: rotateY(390deg) scale(1.15);
-  }
-}
-@keyframes reflection {
-  0% {
-    background-position: left;
-  }
-  100% {
-    background-position: right;
+    transform: rotateY(390deg) scale(1.05);
   }
 }
 
-
-
+/* move the reflection/sheen layer across the surface */
+@keyframes lightingeffect-back { 
+0% { 
+  background-position: -200% 100%, left top ;
+  }
+25% { 
+  background-position: -200% 100%, left top ;
+  }
+50% { 
+  background-position: 0% 100%, left top;
+  }
+75% {
+  background-position: 200% 100%, left top;
+  }
+100% {
+  background-position: 200% 100%, left top;
+  }
+}
+@keyframes lightingeffect-spine { 
+0% { 
+  background-position: -200% 100%, center top ; 
+  }
+25% { 
+  background-position: -200% 100%, center top ;
+  }
+50% { 
+  background-position: 0% 100%, center top;
+  }
+75% {
+  background-position: 200% 100%, center top;
+  }
+100% {
+  background-position: 200% 100%, center top;
+  }
+}
+@keyframes lightingeffect-cover { 
+0% { 
+  background-position: -200% 100%, right top ;
+  }
+25% { 
+  background-position: -200% 100%, right top ;
+  }
+50% { 
+  background-position: 0% 100%, right top;
+  }
+75% {
+  background-position: 200% 100%, right top;
+  }
+100% {
+  background-position: 200% 100%, left top;
+  }
+}
 

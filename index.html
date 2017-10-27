@@ -4,47 +4,66 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
+  <meta charset="utf-8">
 
-    <title>Book Rendering Module</title>
-    <meta name="description" content="Book rendering function">
-    <meta name="author" content="SitePoint">
+  <title>Book Rendering Module</title>
+  <meta name="description" content="Book rendering function">
+  <meta name="author" content="SitePoint">
 
-    <link rel="stylesheet" href="css/book-render.css?v=1.0">
-    <link rel="stylesheet" href="css/page-decoration-only.css">
-    <!--[if lt IE 9]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.3.0/milligram.min.css?v=1.0">
+  <link rel="stylesheet" href="css/book-render.css?v=1.0">
+
+  <!--[if lt IE 9]>
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
 </head>
 
 <body>
-    <div class="book view3d size-small oclock-2 hover">
+  <div class="container">
+    <div class="row">
+      <div class="column">
+        <h1>Test page</h1>
+        <p>(o.s) There's a fight over here, come on guys! Talk about deja vu. Are you OK? (He helps Lorraine up and they walk hand in hand to the gym. A crowd, including 1955 Marty and the Wallet Guy has developed. 1955 Marty checks his photograph and runs off. 1985 Marty goes over to Biff once his parents and 1955 Marty have left.) OK everybody, let's back up now, huh, let's backup, just everybody back up. Give him a little bit of room, OK, a little bit of air. It's OK. I know CPR, (to Wallet Guy) I know CPR.</p>
+      </div>
+      <div class="column">
+        <div class="book view3d size-small oclock-2 hover">
 
-        <div class="cover">
+          <div class="cover">
             <img src="https://cdn.rawgit.com/alexmwalker/view3d/master/img/sass1.png" alt="Book cover: Jump Start Sass" />
+          </div>
+
         </div>
-
+        <p>CLASSES: book view3d size-small oclock-2 hover</p>
+      </div>
     </div>
-    <p>CLASSES: book view3d size-small oclock-2 hover</p>
 
-    <div class="book size-mid view3d oclock-11 hover">
+    <div class="row">
+      <div class="column">
 
-        <div class="cover">
+        <div class="book size-mid view3d oclock-2 hover">
+          <div class="cover">
             <img src="https://cdn.rawgit.com/alexmwalker/view3d/master/img/cssmaster1.png" alt="Book cover: CSS Master " />
+          </div>
+
         </div>
-
+        <p>CLASSES: book size-mid view3d oclock-11 hover</p>
+      </div>
     </div>
-    <p>CLASSES: book size-mid view3d oclock-11 hover</p>
-
-    <div class="book size-small">
-
-        <div class="cover">
+    <div class="row">
+      <div class="column">
+        
+        <div class="book size-small">
+          <div class="cover">
             <img src="https://cdn.rawgit.com/alexmwalker/view3d/master/img/scrum1.png" alt="Book cover: Scrum - Novice to Ninja" />
+          </div>
         </div>
-
+        
+        <p>CLASSES: book size-small. No '.view3d' class. Non-supported browsers will see this simple render.</p>
+        <div class="testgradient">sdf</div>
+      </div>
     </div>
-    <p>CLASSES: book size-small. No '.view3d' class. Non-supported browsers will see this simple render.</p>
-    <script src="js/scripts.js"></script>
+  </div>
+  <script src="js/scripts.js"></script>
 </body>
 
 </html>
