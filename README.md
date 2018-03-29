@@ -1,4 +1,4 @@
-# View3d - Making all your Ds 3.
+# View3D - Rendering flat artwork as 3d models using CSS
 
 This module renders any flat, single-piece, cover graphic into a 3d posable model using HTML, CSS & a little JS. It's ideal for dynamic book renderings, but useful for displaying any DVD boxes, Blu-rays, Video Game packaging, software boxes, matchboxes or _any_ other essentially cubic object.
 
@@ -19,9 +19,11 @@ This is the basic HTML structure for each book graphic.
     </div>
 ```
 
-At their simplest, all books should render square and flat with a simple shadow. The `.book` class is the frame to place into your layout. Currently `.book` is the only 'top-level' object class, but ultimately classes like `.dvd` and `.xbox` would exist to render edges and proportions for those media types. 
+## The fallback/default
 
-The `.cover` class works to mask the IMG down to the front only. Yes, we *could* use `clip: rect` here, but this old-school method ensures older and less sophisticated devices at least get a clean, clipped result.
+At their simplest, all books/models should render square and flat with a simple shadow. Older and/or less powerful browsers should be default to presenting a book in this simple mode. The `.book` class is the placeholder frame to place into your layout. Currently `.book` is the only 'top-level' object class, but ultimately we could add classes like `.dvd`, `.cdcase` and `.xbox` to render edges and proportions for those media types. 
+
+The `.cover` class works to mask the full cover IMG file down to showing the front only. Yes, technically we *could* use `clip: rect` here, but this old-school method ensures all those older and less sophisticated devices at least get a clean, clipped result.
 
 Three sizes are available `.size-small`, `.size-mid` and `.size-large`. These dimensions are set in the SASS variables. 
 ```html
@@ -46,7 +48,7 @@ Posing classes are used to rotate and position the 3d model. These classes have 
 
 #### Tick Tock 
 
-I'm using an 'analog clock-centric' CSS class system to provide a dozen basic rotated 'poses'. In this system, the viewer stands at 12 o'clock and the model is placed in the middle of the clock. So, if the `.oclock-12` class is applied to the book, the book will face directly at the viewer (or with no posing class present, as this is the default).
+I'm using an 'analog clock-centric' CSS class system to provide a dozen basic rotated 'poses'. In this system, the viewer stands at 12 o'clock and the model is placed in the middle of the clock. So, if the `.oclock-12` class is applied to the book, the book will face squarely towards the viewer (or with no posing class present, as this is the default).
 
              +------------+
              |   Viewer   |
@@ -76,6 +78,8 @@ Lastly you can choose to make the model react to the mouse by adding the `.hover
         <div class="cover">
             ...
 ```
+
+
 ## Sass
 
 The Sass file generates a set of dimensions for the various model sizes off the back of three numbers.
@@ -119,7 +123,7 @@ If you're only rendering one book, it's easy to just manually tune the spine wid
 
 I'm 'satisficing' with method 1 for now.
 
-### Update
+### Update Decemember 2017
 
 I've added a new class called 'chunky' for use with thicker books. Add it to outer frame and you'll get a chunkier spine on that book. By default, the spine will render fairly thin (visually, about 1cm), but you can set the two spine widths in the Sass file. They are ratios of the book height.
 
@@ -128,9 +132,26 @@ $spine-ratio:        0.07; // default
 $spine-ratio-chunky: 0.14; // fat
 ```
 
+### Update April 2018
+
+I've added 3 new class that can be added to the outer `.book` frame.
+
+`.aspect8-10`: This lets us tweak the book width for 8" x 10" books.
+`.lowview`:    This adjusts the 'camera view' (perspective-origin) to be lower than the model
+`.highview`:   This adjusts the 'camera view' (perspective-origin) to be above the model
+
+```sass
+$spine-ratio:        0.07; // default
+$spine-ratio-chunky: 0.14; // fat
+```
+
+
+
 ## JavaScript
 
-This rendering method doesn't demand the use of Javascript. We could get the same result with just CSS and HTML. However Javascript allows us keep the static HTML simpler, and then build slightly more complicated DOM structure only when we need it.
+This rendering method doesn't demand the use of Javascript. We could get the same result with just CSS and HTML. However Javascript:
+1) Allows us keep the static HTML simpler, and then build slightly more complicated DOM structure only when we need it.
+2) Lets us keep the
 
 The script creates a wrapping DIV called `.bookgroup` around the `.cover` object. This is the DOM element we use to 'pose' the model.
 
